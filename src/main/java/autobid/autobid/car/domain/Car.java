@@ -1,5 +1,6 @@
 package autobid.autobid.car.domain;
 
+import autobid.autobid.auction.domain.Auction;
 import autobid.autobid.user.domain.User;
 import jakarta.persistence.*;
 
@@ -15,6 +16,9 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToOne(mappedBy = "car")
+    private Auction auction;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "car_status")

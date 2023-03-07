@@ -1,5 +1,6 @@
 package autobid.autobid.user.domain;
 
+import autobid.autobid.auction.domain.Auction;
 import autobid.autobid.car.domain.Car;
 import jakarta.persistence.*;
 
@@ -16,6 +17,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Car> cars = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Auction> auctions;
 
     @Column(name = "user_userId")
     private String userId;
